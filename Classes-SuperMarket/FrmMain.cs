@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Classes_SuperMarket
 {
-    public partial class Form1 : Form
+    public partial class FrmMain : Form
     {
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
