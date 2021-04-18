@@ -37,12 +37,65 @@ namespace Classes_SuperMarket
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string productName = txtProductName.Text;
+            int quantity = (int)nudQuantity.Value;
 
+            _presenter.AddCartProductClicked(productName, quantity);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            _presenter.EmptyCart();
+            lvwCartProduct.Items.Clear();
+        }
+        public void DisplayCartTotal(decimal total)
+        {
+            lblPrice.Text = $"${total}";
+        }
 
+        private void lvwProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvwProducts.SelectedItems.Count < 1)
+                ResetNewCartProductUI();
+            else
+                EnableNewCartProductUI();
+        }
+        public void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public void DisplayCartProduct(ProductQuantity model)
+        {
+            string productName = model.Product.Name;
+            string unitPrice = model.Product.Price.ToString();
+            string quantity = model.Quantity.ToString();
+            string totalPrice = model.TotalPrice.ToString();
+
+            ListViewItem lvi = CreateListViewItem(productName, unitPrice, quantity, totalPrice);
+            lvwCartProduct.Items.Add(lvi);
+
+            ResetNewCartProductUI();
+        }
+
+        private void ResetNewCartProductUI()
+        {
+            btnAdd.Enabled = false;
+            txtProductName.Text = string.Empty;
+            nudQuantity.Value = 1;
+        }
+
+        private void EnableNewCartProductUI()
+        {
+            btnAdd.Enabled = true;
+            txtProductName.Text = lvwProducts.SelectedItems[0].Text;
+        }
+
+        private ListViewItem CreateListViewItem(string firstColumn, params string[] columns)
+        {
+            ListViewItem lvi = new ListViewItem(firstColumn);
+            foreach (string col in columns)
+                lvi.SubItems.Add(col);
+            return lvi;
         }
     }
 }

@@ -8,9 +8,9 @@ namespace Classes_SuperMarket.Models
 {
     public enum ProductType
     {
-        FRUIT,
-        DAIRY,
-        SNACK,
-        VEGETABLE,
+        Fruti,
+        Dairy,
+        Snack,
+        Vegetable,
     }
 }

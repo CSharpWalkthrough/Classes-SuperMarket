@@ -17,7 +17,7 @@ namespace Classes_SuperMarket.Repositories
         {
             get
             {
-                if (_instance != null)
+                if (_instance == null)
                     _instance = new CartProductsRepository();
 
                 return _instance;
@@ -46,29 +46,34 @@ namespace Classes_SuperMarket.Repositories
             _products.Add(new Product { Name = "Lettuce", Price = 1.00M, ProductType = ProductType.VEGETABLE });
         }
 
+        public Product GetProductByName(string productName)
+        {
+            return _products.Find(p => p.Name == productName);
+        }
+
         public List<Product> GetAllProducts()
         {
             return _products;
         }
 
-        public List<ProductQuantity> GetProductQuantities()
-        {
-            return _productQuantities;
-        } 
-
         public void AddProductQuantity(ProductQuantity productQuantity)
         {
-            //In presenter
-            //int index = _productQuantities.FindIndex(pq => pq.Product.Equals(productQuantity));
-            //if (index != -1)
-            //    throw new ArgumentException(PRODUCT_QUANTITY_ERROR);
-
             _productQuantities.Add(productQuantity);
         }
 
         public void RemoveAllProductQuantities()
         {
             _productQuantities.Clear();
+        }
+
+        public bool IsProductInCart(Product product)
+        {
+            return _productQuantities.Any(pq => pq.Product.Equals(product));
+        }
+
+        public decimal GetCartTotal()
+        {
+            return _productQuantities.Sum(pq => pq.TotalPrice);
         }
     }
 }

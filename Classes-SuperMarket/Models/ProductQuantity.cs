@@ -8,6 +8,12 @@ namespace Classes_SuperMarket.Models
 {
     public class ProductQuantity
     {
+        public ProductQuantity(Product product, int quantity)
+        {
+            Product = product;
+            Quantity = quantity;
+        }
+
         public Product Product { get; set; }
         public int Quantity { get; set; }
 

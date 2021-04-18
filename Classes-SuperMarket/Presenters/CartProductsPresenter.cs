@@ -11,11 +11,9 @@ namespace Classes_SuperMarket.Presenters
 {
     public class CartProductsPresenter
     {
-        private const string PRODUCT_QUANTITY_ERROR = "This product is already in your cart";
+        private const string PRODUCT_EXISTS_ERROR = "This product is already in your cart";
 
         private readonly ICartProductsView _view;
-        private List<Product> _currentProducts;
-        private List<ProductQuantity> _currentProductQuantities;
 
         public CartProductsPresenter(ICartProductsView cartProductsView)
         {
@@ -25,8 +23,32 @@ namespace Classes_SuperMarket.Presenters
 
         private void DisplayProducts()
         {
-            _currentProducts = CartProductsRepository.Instance.GetAllProducts();
-            _view.DisplayProducts(_currentProducts);
+            List<Product>  currentProducts = CartProductsRepository.Instance.GetAllProducts();
+            _view.DisplayProducts(currentProducts);
+        }
+
+        public void AddCartProductClicked(string productName, int quantity)
+        {
+
+            Product product = CartProductsRepository.Instance.GetProductByName(productName);
+
+            if (CartProductsRepository.Instance.IsProductInCart(product))
+            {
+                _view.ShowErrorMessage(PRODUCT_EXISTS_ERROR);
+                return;
+            }
+
+            ProductQuantity model = new ProductQuantity(product, quantity);
+            CartProductsRepository.Instance.AddProductQuantity(model);
+            _view.DisplayCartProduct(model);
+
+            decimal total = CartProductsRepository.Instance.GetCartTotal();
+            _view.DisplayCartTotal(total);
+        }
+
+        public void EmptyCart()
+        {
+            CartProductsRepository.Instance.RemoveAllProductQuantities();
         }
     }
 }

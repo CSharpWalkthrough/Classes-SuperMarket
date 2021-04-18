@@ -10,10 +10,12 @@ namespace Classes_SuperMarket.Repositories
     public interface ICartProductsRepository
     {
         List<Product> GetAllProducts();
-        List<ProductQuantity> GetProductQuantities();
+        Product GetProductByName(string productName);
 
         void AddProductQuantity(ProductQuantity productQuantity);
-
         void RemoveAllProductQuantities();
+
+        bool IsProductInCart(Product product);
+        decimal GetCartTotal();
     }
 }
