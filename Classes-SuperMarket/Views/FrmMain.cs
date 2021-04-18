@@ -21,19 +21,6 @@ namespace Classes_SuperMarket
             InitializeComponent();
             _presenter = new CartProductsPresenter(this);
         }
-        public void DisplayProducts(IEnumerable<Product> products)
-        {
-            lvwProducts.Items.Clear();
-
-            foreach (Product product in products)
-            {
-                ListViewItem lvi = new ListViewItem(product.Name);
-                lvi.SubItems.Add(product.ProductType.ToString());
-                lvi.SubItems.Add(product.Price.ToString());
-
-                lvwProducts.Items.Add(lvi);
-            }
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -48,10 +35,6 @@ namespace Classes_SuperMarket
             _presenter.EmptyCart();
             lvwCartProduct.Items.Clear();
         }
-        public void DisplayCartTotal(decimal total)
-        {
-            lblPrice.Text = $"${total}";
-        }
 
         private void lvwProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -60,10 +43,21 @@ namespace Classes_SuperMarket
             else
                 EnableNewCartProductUI();
         }
-        public void ShowErrorMessage(string message)
+
+        public void DisplayProducts(IEnumerable<Product> products)
         {
-            MessageBox.Show(message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            lvwProducts.Items.Clear();
+
+            foreach (Product product in products)
+            {
+                ListViewItem lvi = new ListViewItem(product.Name);
+                lvi.SubItems.Add(product.ProductType.ToString());
+                lvi.SubItems.Add(product.Price.ToString());
+
+                lvwProducts.Items.Add(lvi);
+            }
         }
+
         public void DisplayCartProduct(ProductQuantity model)
         {
             string productName = model.Product.Name;
@@ -77,11 +71,23 @@ namespace Classes_SuperMarket
             ResetNewCartProductUI();
         }
 
+        public void DisplayCartTotal(decimal total)
+        {
+            txtCartTotal.Text = $"${total}";
+        }
+
+        public void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ResetNewCartProductUI();
+        }
+
         private void ResetNewCartProductUI()
         {
             btnAdd.Enabled = false;
             txtProductName.Text = string.Empty;
             nudQuantity.Value = 1;
+            lvwProducts.SelectedItems.Clear();
         }
 
         private void EnableNewCartProductUI()

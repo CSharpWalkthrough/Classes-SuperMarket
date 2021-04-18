@@ -10,9 +10,8 @@ namespace Classes_SuperMarket.Views
     public interface ICartProductsView
     {
         void DisplayProducts(IEnumerable<Product> products);
-
-        void ShowErrorMessage(string message);
         void DisplayCartProduct(ProductQuantity model);
         void DisplayCartTotal(decimal total);
+        void ShowErrorMessage(string message);
     }
 }
