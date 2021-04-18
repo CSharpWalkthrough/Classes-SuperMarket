@@ -49,6 +49,7 @@ namespace Classes_SuperMarket.Presenters
         public void EmptyCart()
         {
             CartProductsRepository.Instance.RemoveAllProductQuantities();
+            _view.DisplayCartTotal(0.00M);
         }
     }
 }
