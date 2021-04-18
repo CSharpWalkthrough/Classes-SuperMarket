@@ -11,18 +11,5 @@ namespace Classes_SuperMarket.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public ProductType ProductType { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-
-            Product product = (Product)obj;
-            return this.Name.ToLower() == product.Name.ToLower();
-        }
-
-        public override int GetHashCode()
-        {
-            return this.Name.GetHashCode();
-        }
     }
 }

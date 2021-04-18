@@ -11,9 +11,11 @@ namespace Classes_SuperMarket.Presenters
 {
     public class CartProductsPresenter
     {
+        private const string PRODUCT_QUANTITY_ERROR = "This product is already in your cart";
+
         private readonly ICartProductsView _view;
-        private IEnumerable<Product> _currentProducts;
-        private IEnumerable<ProductQuantity> _currentProductQuantities;
+        private List<Product> _currentProducts;
+        private List<ProductQuantity> _currentProductQuantities;
 
         public CartProductsPresenter(ICartProductsView cartProductsView)
         {

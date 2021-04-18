@@ -11,6 +11,6 @@ namespace Classes_SuperMarket.Models
         public Product Product { get; set; }
         public int Quantity { get; set; }
 
-        // Override Equals
+        public decimal TotalPrice { get { return Product.Price * Quantity;  } }
     }
 }

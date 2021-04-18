@@ -9,8 +9,6 @@ namespace Classes_SuperMarket.Repositories
 {
     public class CartProductsRepository : ICartProductsRepository
     {
-        private const string PRODUCT_QUANTITY_ERROR = "This product is already in your cart";
-
         private readonly List<Product> _products;
         private readonly List<ProductQuantity> _productQuantities;
         private static CartProductsRepository _instance;
