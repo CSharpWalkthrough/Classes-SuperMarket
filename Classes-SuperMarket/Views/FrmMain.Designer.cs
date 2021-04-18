@@ -34,14 +34,13 @@ namespace Classes_SuperMarket
             this.chPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvwCartIProduct = new System.Windows.Forms.ListView();
             this.chProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblQuantity = new System.Windows.Forms.Label();
-            this.chProductType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +48,11 @@ namespace Classes_SuperMarket
             // 
             this.lvwProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chProduct,
-            this.chProductType,
             this.chPrice});
             this.lvwProducts.HideSelection = false;
             this.lvwProducts.Location = new System.Drawing.Point(30, 21);
             this.lvwProducts.Name = "lvwProducts";
-            this.lvwProducts.Size = new System.Drawing.Size(305, 317);
+            this.lvwProducts.Size = new System.Drawing.Size(255, 317);
             this.lvwProducts.TabIndex = 0;
             this.lvwProducts.UseCompatibleStateImageBehavior = false;
             this.lvwProducts.View = System.Windows.Forms.View.Details;
@@ -62,12 +60,12 @@ namespace Classes_SuperMarket
             // chProduct
             // 
             this.chProduct.Text = "Product";
-            this.chProduct.Width = 100;
+            this.chProduct.Width = 150;
             // 
             // chPrice
             // 
             this.chPrice.Text = "Price";
-            this.chPrice.Width = 75;
+            this.chPrice.Width = 100;
             // 
             // lvwCartIProduct
             // 
@@ -75,7 +73,7 @@ namespace Classes_SuperMarket
             this.chProductName,
             this.chQuantity});
             this.lvwCartIProduct.HideSelection = false;
-            this.lvwCartIProduct.Location = new System.Drawing.Point(481, 21);
+            this.lvwCartIProduct.Location = new System.Drawing.Point(433, 21);
             this.lvwCartIProduct.Name = "lvwCartIProduct";
             this.lvwCartIProduct.Size = new System.Drawing.Size(233, 275);
             this.lvwCartIProduct.TabIndex = 1;
@@ -87,14 +85,9 @@ namespace Classes_SuperMarket
             this.chProductName.Text = "Product";
             this.chProductName.Width = 150;
             // 
-            // chQuantity
-            // 
-            this.chQuantity.Text = "Quantity";
-            this.chQuantity.Width = 75;
-            // 
             // nudQuantity
             // 
-            this.nudQuantity.Location = new System.Drawing.Point(363, 135);
+            this.nudQuantity.Location = new System.Drawing.Point(315, 135);
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(90, 20);
             this.nudQuantity.TabIndex = 3;
@@ -103,7 +96,7 @@ namespace Classes_SuperMarket
             // 
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.Location = new System.Drawing.Point(654, 315);
+            this.lblTotalPrice.Location = new System.Drawing.Point(606, 315);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(60, 16);
             this.lblTotalPrice.TabIndex = 4;
@@ -113,7 +106,7 @@ namespace Classes_SuperMarket
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(605, 315);
+            this.lblPrice.Location = new System.Drawing.Point(557, 315);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(42, 16);
             this.lblPrice.TabIndex = 5;
@@ -121,7 +114,7 @@ namespace Classes_SuperMarket
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(481, 308);
+            this.btnClear.Location = new System.Drawing.Point(433, 308);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(90, 30);
             this.btnClear.TabIndex = 6;
@@ -131,7 +124,7 @@ namespace Classes_SuperMarket
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(363, 172);
+            this.btnAdd.Location = new System.Drawing.Point(315, 172);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 30);
             this.btnAdd.TabIndex = 7;
@@ -143,22 +136,22 @@ namespace Classes_SuperMarket
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(361, 112);
+            this.lblQuantity.Location = new System.Drawing.Point(313, 112);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(56, 16);
             this.lblQuantity.TabIndex = 8;
             this.lblQuantity.Text = "Quantity";
             // 
-            // chProductType
+            // chQuantity
             // 
-            this.chProductType.Text = "Product Type";
-            this.chProductType.Width = 125;
+            this.chQuantity.Text = "Quantity";
+            this.chQuantity.Width = 75;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 355);
+            this.ClientSize = new System.Drawing.Size(697, 355);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);
@@ -189,7 +182,6 @@ namespace Classes_SuperMarket
         private System.Windows.Forms.ColumnHeader chPrice;
         private System.Windows.Forms.ColumnHeader chProductName;
         private System.Windows.Forms.ColumnHeader chQuantity;
-        private System.Windows.Forms.ColumnHeader chProductType;
     }
 }
 
