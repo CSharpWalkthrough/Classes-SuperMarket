@@ -8,7 +8,7 @@ namespace Classes_SuperMarket.Models
 {
     public enum ProductType
     {
-        Fruti,
+        Fruit,
         Dairy,
         Snack,
         Vegetable,

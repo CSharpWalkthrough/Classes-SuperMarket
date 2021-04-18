@@ -34,16 +34,16 @@ namespace Classes_SuperMarket.Repositories
 
         public void InitializeProducts()
         {
-            _products.Add(new Product { Name = "Potato", Price = 2.50M, ProductType = ProductType.VEGETABLE });
-            _products.Add(new Product { Name = "Chips", Price = 3.75M, ProductType = ProductType.SNACK });
-            _products.Add(new Product { Name = "Milk", Price = 6.25M, ProductType = ProductType.DAIRY });
-            _products.Add(new Product { Name = "Yogurt", Price = 1.00M, ProductType = ProductType.DAIRY });
-            _products.Add(new Product { Name = "Apple", Price = 0.99M, ProductType = ProductType.FRUIT });
-            _products.Add(new Product { Name = "Cookies", Price = 5.50M, ProductType = ProductType.SNACK });
-            _products.Add(new Product { Name = "Carrot", Price = 1.75M, ProductType = ProductType.VEGETABLE });
-            _products.Add(new Product { Name = "Banana", Price = 2.50M, ProductType = ProductType.FRUIT });
-            _products.Add(new Product { Name = "Cheese", Price = 8.45M, ProductType = ProductType.DAIRY });
-            _products.Add(new Product { Name = "Lettuce", Price = 1.00M, ProductType = ProductType.VEGETABLE });
+            _products.Add(new Product { Name = "Potato", Price = 2.50M, ProductType = ProductType.Vegetable });
+            _products.Add(new Product { Name = "Chips", Price = 3.75M, ProductType = ProductType.Snack });
+            _products.Add(new Product { Name = "Milk", Price = 6.25M, ProductType = ProductType.Dairy });
+            _products.Add(new Product { Name = "Yogurt", Price = 1.00M, ProductType = ProductType.Dairy });
+            _products.Add(new Product { Name = "Apple", Price = 0.99M, ProductType = ProductType.Fruit });
+            _products.Add(new Product { Name = "Cookies", Price = 5.50M, ProductType = ProductType.Snack });
+            _products.Add(new Product { Name = "Carrot", Price = 1.75M, ProductType = ProductType.Vegetable });
+            _products.Add(new Product { Name = "Banana", Price = 2.50M, ProductType = ProductType.Fruit });
+            _products.Add(new Product { Name = "Cheese", Price = 8.45M, ProductType = ProductType.Dairy });
+            _products.Add(new Product { Name = "Lettuce", Price = 1.00M, ProductType = ProductType.Vegetable });
         }
 
         public Product GetProductByName(string productName)
