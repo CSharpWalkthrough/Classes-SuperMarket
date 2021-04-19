@@ -25,5 +25,10 @@ namespace Classes_SuperMarket
         {
 
         }
+
+        private void lvwProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
